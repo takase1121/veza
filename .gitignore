@@ -2,7 +2,7 @@ node_modules/
 package-lock.json
 .vs/
 .idea/
-*.js
+!/dist/*.js
 *.js.map
 *.tsbuildinfo
 *.tgz
