@@ -1,6 +1,6 @@
 import { SocketHandler } from './Structures/Base/SocketHandler';
 import { Socket as NetSocket, SocketConnectOpts } from 'net';
-import { deserialize, serialize } from 'binarytf';
+import { deserialize, serialize } from 'v8';
 import { createFromID, readID } from './Util/Header';
 import { Client } from './Client';
 import { makeError } from './Structures/MessageError';
@@ -225,7 +225,7 @@ export class ClientSocket extends SocketHandler {
 
 			const onData = (message: Uint8Array) => {
 				try {
-					const name = deserialize(message, 11);
+					const name = deserialize(message);
 					if (typeof name === 'string') {
 						const previous = this.name;
 						this.name = name;

@@ -1,5 +1,5 @@
 import { read } from '../Util/Header';
-import { deserialize } from 'binarytf';
+import { deserialize } from 'v8';
 import { RawMessage } from './Base/SocketHandler';
 
 /**
@@ -45,7 +45,7 @@ export class Queue extends Map<number, QueueEntry> {
 			}
 
 			try {
-				const value = deserialize(buffer, 11);
+				const value = deserialize(buffer);
 				output.push({ id, receptive, data: value });
 			} catch (error) {
 				output.push({ id: null, receptive: false, data: error });

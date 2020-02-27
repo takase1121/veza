@@ -1,6 +1,6 @@
 import { SocketHandler } from './Base/SocketHandler';
 import { createFromID } from '../Util/Header';
-import { serialize } from 'binarytf';
+import { serialize } from 'v8';
 
 export class NodeMessage {
 

@@ -2,7 +2,7 @@ import { NodeMessage } from '../NodeMessage';
 import { Queue } from '../Queue';
 import { Socket as NetSocket } from 'net';
 import { create, read } from '../../Util/Header';
-import { serialize } from 'binarytf';
+import { serialize } from 'v8';
 import { SendOptions } from '../../Util/Shared';
 
 /**

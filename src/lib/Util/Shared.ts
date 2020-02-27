@@ -1,5 +1,5 @@
 import { createFromID } from './Header';
-import { serialize } from 'binarytf';
+import { serialize } from 'v8';
 import { RawMessage } from '../Structures/Base/SocketHandler';
 
 /**
