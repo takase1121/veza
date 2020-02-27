@@ -29,7 +29,7 @@
   ],
   "scripts": {
     "prepublishOnly": "yarn build",
-    "test": "yarn build && yarn build:test && yarn test:run",
+    "test": "npm run build && npm run build:test && npm run test:run",
     "test:run": "node test/suite",
     "test:lint": "eslint --ext ts src examples",
     "test:azure": "yarn build && yarn build:test && yarn test:run | tap-xunit --package=\"veza\" > test.xml",

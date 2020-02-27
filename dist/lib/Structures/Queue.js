@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const Header_1 = require("../Util/Header");
-const v8_1 = require("v8");
+const DataFormat_1 = require("../Util/DataFormat");
 /**
  * The queue class that manages messages.
  * @since 0.1.0
@@ -42,7 +42,7 @@ class Queue extends Map {
                 break;
             }
             try {
-                const value = v8_1.deserialize(buffer);
+                const value = DataFormat_1.deserialize(buffer);
                 output.push({ id, receptive, data: value });
             }
             catch (error) {

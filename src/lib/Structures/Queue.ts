@@ -1,5 +1,5 @@
 import { read } from '../Util/Header';
-import { deserialize } from 'v8';
+import { deserialize } from '../Util/DataFormat';
 import { RawMessage } from './Base/SocketHandler';
 
 /**

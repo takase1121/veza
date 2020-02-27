@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const NodeMessage_1 = require("../NodeMessage");
 const Queue_1 = require("../Queue");
 const Header_1 = require("../../Util/Header");
-const v8_1 = require("v8");
+const DataFormat_1 = require("../../Util/DataFormat");
 /**
  * The abstract socket handler for {@link ClientSocket} and {@link ServerSocket}.
  * @since 0.0.1
@@ -37,7 +37,7 @@ class SocketHandler {
         return new Promise((resolve, reject) => {
             let id;
             try {
-                const serialized = v8_1.serialize(data);
+                const serialized = DataFormat_1.serialize(data);
                 const message = Header_1.create(receptive, serialized);
                 id = Header_1.read(message).id;
                 this.socket.write(message);

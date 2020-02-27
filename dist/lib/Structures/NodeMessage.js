@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const Header_1 = require("../Util/Header");
-const v8_1 = require("v8");
+const DataFormat_1 = require("../Util/DataFormat");
 class NodeMessage {
     /**
      * @since 0.0.1
@@ -25,7 +25,7 @@ class NodeMessage {
      */
     reply(content) {
         if (this.receptive) {
-            this.client.socket.write(Header_1.createFromID(this.id, false, v8_1.serialize(content)));
+            this.client.socket.write(Header_1.createFromID(this.id, false, DataFormat_1.serialize(content)));
         }
     }
     /**

@@ -1,6 +1,6 @@
 import { SocketHandler } from './Structures/Base/SocketHandler';
 import { Socket as NetSocket, SocketConnectOpts } from 'net';
-import { deserialize, serialize } from 'v8';
+import { deserialize, serialize } from './Util/DataFormat';
 import { createFromID, readID } from './Util/Header';
 import { Client } from './Client';
 import { makeError } from './Structures/MessageError';
@@ -237,7 +237,9 @@ export class ClientSocket extends SocketHandler {
 						// eslint-disable-next-line @typescript-eslint/no-use-before-define
 						return resolve(cleanup());
 					}
-				} catch { }
+				} catch (error) {
+					console.log(error);
+				}
 				// eslint-disable-next-line @typescript-eslint/no-use-before-define
 				onError(new Error('Unexpected response from the server.'));
 				this.socket!.destroy();

@@ -2,7 +2,7 @@ import { Server, Client, NodeClientOptions, ServerSocketStatus, ClientSocketStat
 import * as test from 'tape';
 import { create } from '../dist/lib/Util/Header';
 import { get, createServer } from 'http';
-import { serialize } from 'binarytf';
+import { serialize } from 'v8';
 import { URL } from 'url';
 import { readFileSync } from 'fs';
 

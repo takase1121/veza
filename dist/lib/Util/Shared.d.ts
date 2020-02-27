@@ -1,3 +1,4 @@
+/// <reference types="node" />
 import { RawMessage } from '../Structures/Base/SocketHandler';
 /**
  * The send options.
@@ -80,3 +81,4 @@ export declare const VCLOSE: Uint8Array;
  * @private
  */
 export declare function receivedVClose(processed: RawMessage): boolean;
+export declare function normalizeLen(data: Uint8Array | Buffer): number;

@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const SocketHandler_1 = require("./Structures/Base/SocketHandler");
 const net_1 = require("net");
-const v8_1 = require("v8");
+const DataFormat_1 = require("./Util/DataFormat");
 const Header_1 = require("./Util/Header");
 const MessageError_1 = require("./Structures/MessageError");
 const Shared_1 = require("./Util/Shared");
@@ -192,7 +192,7 @@ class ClientSocket extends SocketHandler_1.SocketHandler {
             }
             const onData = (message) => {
                 try {
-                    const name = v8_1.deserialize(message);
+                    const name = DataFormat_1.deserialize(message);
                     if (typeof name === 'string') {
                         const previous = this.name;
                         this.name = name;
@@ -200,12 +200,14 @@ class ClientSocket extends SocketHandler_1.SocketHandler {
                             this.client.servers.delete(previous);
                         // Reply with the name of the node, using the header id and concatenating with the
                         // serialized name afterwards.
-                        this.socket.write(Header_1.createFromID(Header_1.readID(message), false, v8_1.serialize(this.client.name)));
+                        this.socket.write(Header_1.createFromID(Header_1.readID(message), false, DataFormat_1.serialize(this.client.name)));
                         // eslint-disable-next-line @typescript-eslint/no-use-before-define
                         return resolve(cleanup());
                     }
                 }
-                catch { }
+                catch (error) {
+                    console.log(error);
+                }
                 // eslint-disable-next-line @typescript-eslint/no-use-before-define
                 onError(new Error('Unexpected response from the server.'));
                 this.socket.destroy();
