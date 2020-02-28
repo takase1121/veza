@@ -27,8 +27,4 @@ function receivedVClose(processed) {
     return processed.id === 0 && processed.receptive === false && processed.data === exports.VCLOSE_SIGNAL;
 }
 exports.receivedVClose = receivedVClose;
-function normalizeLen(data) {
-    return Buffer.isBuffer(data) ? data.length : data.byteLength;
-}
-exports.normalizeLen = normalizeLen;
 //# sourceMappingURL=Shared.js.map

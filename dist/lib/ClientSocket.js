@@ -205,8 +205,7 @@ class ClientSocket extends SocketHandler_1.SocketHandler {
                         return resolve(cleanup());
                     }
                 }
-                catch (error) {
-                    console.log(error);
+                catch {
                 }
                 // eslint-disable-next-line @typescript-eslint/no-use-before-define
                 onError(new Error('Unexpected response from the server.'));

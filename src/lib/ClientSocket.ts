@@ -237,8 +237,7 @@ export class ClientSocket extends SocketHandler {
 						// eslint-disable-next-line @typescript-eslint/no-use-before-define
 						return resolve(cleanup());
 					}
-				} catch (error) {
-					console.log(error);
+				} catch {
 				}
 				// eslint-disable-next-line @typescript-eslint/no-use-before-define
 				onError(new Error('Unexpected response from the server.'));
