@@ -78,6 +78,5 @@
     "typescript": "^3.7.4"
   },
   "dependencies": {
-    "binarytf": "^2.0.0"
   }
 }
